@@ -48,6 +48,9 @@
 		<!-- ods js -->
 		<script src='/js/osd_viewer.js'></script>
 
+		<!-- ods js -->
+		<script src='/simulate_data.js'></script>
+
 	</head>
 	<body>
 		<!-- message-->
@@ -186,44 +189,8 @@
 			</div>
 			<div class='item_head'><span>Layers Manager</span></div>
 			<div class='item_body'>
-				<div class='item_content'>						
-					<div id='overlayers' class='layer_viewer'>
-						<div class='searchbar'>
-							<i class='material-icons md-24'>keyboard_arrow_down</i><input type='input' placeholder='Search By Name/ID' /><button class='material-icons md-24'>find_in_page</button><input type='checkbox' class='big'/>
-						</div>
-						<div class='layers_list'>
-							<ul>
-							    <li class='root'>
-							      <i class='material-icons md-24'>keyboard_arrow_down</i><div><label for='anno'>Human Annotations</label></div><input type='checkbox' id='anno' class='big'/>
-							    </li>
-							    <ul>
-							      <li class='leaf' title='Person_1'>
-							        <div ><label for='1'>Person_1</label></div><input id='1' type='checkbox' />
-							      </li>
-							      <li class='leaf' title='Person_2'>
-							        <div ><label for='1'>Person_2</label></div><input id='2' type='checkbox' />
-							      </li>
-							      <li class='leaf' title='Person_3'>
-							        <div ><label for='1'>Person_3</label></div><input id='3' type='checkbox' />
-							      </li>
-							    </ul>
-							    <li class='root'>
-							    	<i class='material-icons md-24'>keyboard_arrow_down</i><div><label for='pathomic'>Pathomic Features</label></div><input type='checkbox' id='pathomic' class='big'/>
-							    </li>
-							    <ul>
-							      <li class='leaf' title='Algo-x1-x1-y1'>
-							        <i class='material-icons'></i><div ><label for='a1'>Algo-x1-x1-y1</label></div><input id='a1' type='checkbox' />
-							      </li>
-							      <li class='leaf' title='Algo-x1-x1-y2'>
-							        <div ><label for='a2'>Algo-x1-x1-y2</label></div><input id='a2' type='checkbox' />
-							      </li>
-							      <li class='leaf' title='Algo-x1-x1-y3'>
-							        <div ><label for='a3'>Algo-x1-x1-y3</label></div><input id='a3' type='checkbox' />
-							      </li>
-							    </ul>
-  							</ul>
-  						</div>
-					</div>
+				<div class='item_content'>	
+					<div id='overlayers'></div>	
 				</div>
 			</div>
 		</div>

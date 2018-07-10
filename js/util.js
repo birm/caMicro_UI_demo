@@ -9,3 +9,7 @@ function extend(){
                 arguments[0][key] = arguments[i][key];
     return arguments[0];
 }
+
+function empty(elt){
+	while(elt.firstChild) elt.removeChild(elt.firstChild)
+}

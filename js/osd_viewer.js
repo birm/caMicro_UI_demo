@@ -97,8 +97,14 @@ function initialize(){
     var nav_btm_right = viewer.controls.bottomright;
     nav_btm_right.insertBefore(zctrl.elt,nav_btm_right.firstChild);
 
+    // view callback function
+    function callback(data,isDisplay){
+    	console.log(data);
+    	console.log(isDisplay);
+    }
+
     // overlayer manager
-    layer_manager = new LayersViewer({'id':'overlayers'});
+    layer_manager = new LayersViewer({id:'overlayers',data:layersData,callback:callback });
 
 	console.log('end');
 
