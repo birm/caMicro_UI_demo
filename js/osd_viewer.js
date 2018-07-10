@@ -55,6 +55,8 @@ function initialize(){
         animationTime: 0.75,
         maxZoomPixelRatio: 1,
         visibilityRatio: 1,
+        maxZoomLevel:4,
+        minZoomLevel:.4,
         constrainDuringPan: true
 	});
 	// clear control dock
@@ -77,7 +79,6 @@ function initialize(){
         console.log("scalebar err: ", ex.message);
     }
 
-
     // const zmax = Math.ceil(viewer.viewport.getMaxZoom());
     // const zmin = Math.ceil(viewer.viewport.getMinZoom());
     // const cur =  Math.ceil((zmax-zmin)/2);
@@ -94,8 +95,7 @@ function initialize(){
 			'step':0.01
 		}
 	});
-    var nav_btm_right = viewer.controls.bottomright;
-    nav_btm_right.insertBefore(zctrl.elt,nav_btm_right.firstChild);
+
 
     // view callback function
     function callback(data,isDisplay){
@@ -115,6 +115,7 @@ function initialize(){
 
 }
 
+// some fake events callback for demo
 function shared(){
 	window.prompt('Share this link', 'http://localhost/camicroscope/osdCamicroscope.php?tissueId=TEST&state=eyJwb3NpdGlvbiI6eyJ4IjowLjUsInkiOjAuNTk2OTIxNzMzMTEwMDQyNywieiI6MC41NzcxMDk2MjYwOTczNDM0fSwiYWxnIjpbImh1bWFubWFyayJdfQ%3D%3D');
 }
