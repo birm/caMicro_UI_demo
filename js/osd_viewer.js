@@ -70,7 +70,7 @@ function initialize(){
 			'max':4,
 			'min':0.4,
 			'cur':1,
-			'step':0.01
+			'step':1.5
 		}
 	});
 
