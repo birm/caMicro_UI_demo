@@ -36,29 +36,7 @@ function initialize(){
 		'default_txt':'ID: 110-asdda-4345-na'
 	});
 
-	viewer = new OpenSeadragon.Viewer({
-		id: "main_viewer",
-		prefixUrl: "/lib/openseadragon/images/",
-		tileSources: "/data_dzi/CMU-1-Small-Region/CMU-1-Small-Region.dzi",
-		//tileSources: "/data_dzi/duomo/duomo.dzi",
-		
-		// -- navigator setting
-		showNavigationControl:false, // hide default toolbars
-		showNavigator:true,
-		navigatorPosition: "BOTTOM_RIGHT",
-        navigatorHeight:   "240px",
-        navigatorWidth:    "240px",
-
-		navigatorAutoFade:false,
-		// -- zoom setting
-		zoomPerClick: 1,
-        animationTime: 0.75,
-        maxZoomPixelRatio: 1,
-        visibilityRatio: 1,
-        maxZoomLevel:4,
-        minZoomLevel:.4,
-        constrainDuringPan: true
-	});
+	viewer = camic.viewer
 	// clear control dock
 	//viewer.clearControls();
 
@@ -83,7 +61,7 @@ function initialize(){
     // const zmin = Math.ceil(viewer.viewport.getMinZoom());
     // const cur =  Math.ceil((zmax-zmin)/2);
     // const step =  Math.ceil((zmax-zmin+1)/20);
-	
+
 	// zoom control
 	zctrl = new CaZoomControl({
 		'id':'zctrl',
@@ -101,6 +79,14 @@ function initialize(){
     function callback(data,isDisplay){
     	console.log(data);
     	console.log(isDisplay);
+			// ger names
+			// add or remove from
+			if (isDisplay){
+				data.forEach((x)=>camic.layers.visibleLayers.add(x.name))
+			} else {
+				data.forEach((x)=>camic.layers.visibleLayers.delete(x.name))
+			}
+
     }
 
     // overlayer manager
@@ -135,5 +121,3 @@ camessage.sendMessage('Algo is running...', {size:'20px',color:'white', bg_color
 
 
 document.addEventListener('DOMContentLoaded', initialize);
-
-
