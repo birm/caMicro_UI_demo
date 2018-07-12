@@ -12,7 +12,7 @@ var slide2 = [{
   id: "duomo",
   name: "TEST2",
   location: "/data_dzi/duomo/duomo.dzi",
-  mpp: 0.499,
+  mpp: 5000,
   checksum: "NA"
 }];
 
@@ -20,13 +20,13 @@ var mt1 = [{
   id: "Square",
   slide: "cmu1",
   type: "human",
-  name: "cmutest"
+  name: "cmuMark"
 }]
 var mt2 = [{
   id: "Triangle",
   slide: "duomo",
   type: "human",
-  name: "duzomotest"
+  name: "duomoMark"
 }]
 
 var data1 = []
@@ -41,7 +41,7 @@ for (var i=0; i<100; i++){
 
 var hm1 = [{
   slide: "cmu1",
-  name: "cmu1heatmap",
+  name: "cmuHeat",
   width: 100,
   height: 100,
   key: "count",
@@ -49,7 +49,7 @@ var hm1 = [{
 }]
 var hm2 = [{
   slide: "duzomo",
-  name: "duzomoheatmap",
+  name: "duomoHeat",
   width: 100,
   height: 100,
   key: "count",
@@ -59,22 +59,20 @@ var hm2 = [{
 var mark1 = [{
   properties: {marktype: "Square"},
   type: "Feature",
-  geometry: [
+  geometry:
     {
       type: "Polygon",
       coordinates: [[0.1, 0.1],[0.3, 0.1],[0.3, 0.3],[0.1, 0.3]]
     }
-  ]
 }]
 var mark2 = [{
   properties: {marktype: "Triangle"},
   type: "Feature",
-  geometry: [
+  geometry:
     {
       type: "Polygon",
       coordinates: [[0.25,0.5], [0.75, 0.5], [0.5, 0.25]]
     }
-  ]
 }
 ]
 // compatibility

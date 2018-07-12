@@ -40,23 +40,6 @@ function initialize(){
 	// clear control dock
 	//viewer.clearControls();
 
-	// set up for scalebar
-	try {
-        viewer.scalebar({
-            type: OpenSeadragon.ScalebarType.MAP,
-            pixelsPerMeter: (1 / (parseFloat(MPP["mpp-x"]) * 0.000001)),
-            xOffset: 5,
-            yOffset: 10,
-            stayInsideImage: true,
-            color: "rgb(150,150,150)",
-            fontColor: "rgb(100,100,100)",
-            backgroundColor: "rgba(255,255,255,0.5)",
-            barThickness: 2
-        });
-    } catch (ex) {
-        console.log("scalebar err: ", ex.message);
-    }
-
     // const zmax = Math.ceil(viewer.viewport.getMaxZoom());
     // const zmin = Math.ceil(viewer.viewport.getMinZoom());
     // const cur =  Math.ceil((zmax-zmin)/2);

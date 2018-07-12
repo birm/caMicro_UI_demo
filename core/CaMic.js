@@ -43,7 +43,28 @@ class CaMic{
   loadImg(){
     // loads current image
     this.store.getSlide()
-      .then((x)=>this.viewer.open(x[0].location))
+      .then((x)=>{
+        this.viewer.open(x[0].location);
+        this.scalebar(x[0].mpp)
+      })
       .catch(console.log)
+  }
+  scalebar(mpp){
+    // set up for scalebar
+    try {
+      this.viewer.scalebar({
+              type: OpenSeadragon.ScalebarType.MAP,
+              pixelsPerMeter: (1 / (parseFloat(mpp) * 0.000001)),
+              xOffset: 5,
+              yOffset: 10,
+              stayInsideImage: true,
+              color: "rgb(150,150,150)",
+              fontColor: "rgb(100,100,100)",
+              backgroundColor: "rgba(255,255,255,0.5)",
+              barThickness: 2
+          });
+      } catch (ex) {
+          console.log("scalebar err: ", ex.message);
+      }
   }
 }
