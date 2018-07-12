@@ -20,9 +20,9 @@ async function getLayers(){
     // get marks
     let marks = await camic.store.getMarks(mt.name)
     // put marks on layer
-    marks.forEach((mark => renderFeature(mt.name, marks, layer))
+    marks.forEach(mark => renderFeature(mt.name, marks, layer))
     // add to layersData
-    let layerdata = {id: mt.name, name: mt.name, typeId:1, typeName: "Human Annotation"}
+    let layerdata = {"id": mt.name, "name": mt.name, "typeId":1, "typeName": "Human Annotation"}
     layersData.push(layerData)
   })
   hms.forEach(function(hm){
@@ -40,3 +40,4 @@ async function getLayers(){
 }
 
 var layersData = getLayers()
+var layerData = layersData

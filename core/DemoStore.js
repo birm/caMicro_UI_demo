@@ -1,7 +1,7 @@
 // for use without database
 // SEED
 var slide1 = [{
-  id: "cmu1"
+  id: "cmu1",
   name: "TEST1",
   location: "/data_dzi/CMU-1-Small-Region/CMU-1-Small-Region.dzi",
   mpp: 0.499,
@@ -9,7 +9,7 @@ var slide1 = [{
 }]
 
 var slide2 = [{
-  id: "duomo"
+  id: "duomo",
   name: "TEST2",
   location: "/data_dzi/duomo/duomo.dzi",
   mpp: 0.499,
@@ -17,13 +17,13 @@ var slide2 = [{
 }];
 
 var mt1 = [{
-  id: "Square"
+  id: "Square",
   slide: "cmu1",
   type: "human",
   name: "cmutest"
 }]
 var mt2 = [{
-  id: "Triangle"
+  id: "Triangle",
   slide: "duomo",
   type: "human",
   name: "duzomotest"
@@ -77,7 +77,10 @@ var mark2 = [{
   ]
 }
 ]
-
+// compatibility
+function fakePromise(returnval){
+  return new Promise((res,rej)=>res(returnval))
+}
 // data
 
 class Store{
@@ -90,40 +93,40 @@ class Store{
 
   getSlide(){
     if (this.slideId == "duomo"){
-      return slide2;
+      return fakePromise(slide2);
     } else {
-      return slide1;
+      return fakePromise(slide1);
     }
   }
 
   getMarktypes(){
     if (this.slideId == "duomo"){
-      return mt2;
+      return fakePromise(mt2);
     } else {
-      return mt1;
+      return fakePromise(mt1);
     }
   }
 
   getHeatmaps(){
     if (this.slideId == "duomo"){
-      return hm2;
+      return fakePromise(hm2);
     } else {
-      return hm1;
+      return fakePromise(hm1);
     }
   }
 
   getMarks(marktypes){
     if (this.slideId == "duomo"){
-      return mark1;
+      return fakePromise(mark1);
     } else {
-      return mark2;
+      return fakePromise(mark2);
     }
   }
   getMarkById(markId){
     if (markId == "triangle"){
-      return mark1;
+      return fakePromise(mark1);
     } else {
-      return slide2;
+      return fakePromise(mark2);
     }
   }
 }

@@ -45,18 +45,20 @@
 		<script src='/lib/sidemenu/sidemenu.js'></script>
 		<!-- layers controller js -->
 		<script src='/lib/layersviewer/layersviewer.js'></script>
-		<!-- ods js -->
-		<script src='/js/osd_viewer.js'></script>
 
-		<!-- core (package/ext) libs -->
-		<script src='/core/Store.js'></script>
+
+    <!-- reqs for core -->
+    <script src='/core/reqs/ProxyTool.js'></script>
+    <script src='/core/reqs/openseadragon-canvas-overlay.js'></script>
+    <script src='/core/reqs/ViewportCalibratedCanvas.js'></script>
+    <!-- core (package/ext) libs -->
+		<script src='/core/DemoStore.js'></script>
     <script src='/core/Drawannots.js'></script>
     <script src='/core/Layer.js'></script>
     <script src='/core/RenderAnnots.js'></script>
     <script src='/core/simpleheat.js'></script>
     <script src='/core/CaMic.js'></script>
 
-    <script src='/js/init.js'></script>
 
 	</head>
 	<body>
@@ -196,4 +198,7 @@
 			</div>
 		</div>
 	</body>
+  <script src='/js/init.js'></script>
+  <!-- ods js -->
+  <script src='/js/osd_viewer.js'></script>
 </html>

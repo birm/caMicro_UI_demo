@@ -21,28 +21,29 @@ class CaMic{
     this.slideId = slideId;
     // initalize store
     this.store = new Store({});
+    this.store.setId(slideId)
     // load image
     // set overlay thing
-    this.overlay = viewer.canvasOverlay({
+    this.overlay = this.viewer.canvasOverlay({
         clearBeforeRedraw:true,
         onRedraw:function() {
           var lw = 50 / (this.viewer.viewport.getZoom(true));
           this.overlay.context2d().lineWidth = lw
           this.layers.drawVisible(this.overlay.context2d());
-        }
+        }.bind(this)
     });
   }
   setImg(slideId){
     // when changing image, clear all stuff
     this.layers.resetAll();
     this.slideId = slideId;
+    this.store.setId(slideId)
   }
-  
+
   loadImg(){
     // loads current image
-    this.store.setId(slideId);
     this.store.getSlide()
-      .then((x)=>viewer.open(x[0].location))
+      .then((x)=>this.viewer.open(x[0].location))
       .catch(console.log)
   }
 }
