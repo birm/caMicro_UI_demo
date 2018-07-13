@@ -29,7 +29,6 @@ class CaMic{
         onRedraw:function() {
           var lw = 50 / (this.viewer.viewport.getZoom(true));
           this.overlay.context2d().lineWidth = lw
-          console.log(lw)
           this.layers.drawVisible(this.overlay.context2d());
         }.bind(this)
     });

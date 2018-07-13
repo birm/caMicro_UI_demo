@@ -19,14 +19,10 @@ async function getLayers(){
     let layer = camic.layers.getLayer(mt.name)
     // get marks
     let marks = await camic.store.getMarks(mt.name)
-    console.log("marks")
-    console.log(marks)
     let layerdata = {"id": mt.name, "name": mt.name, "typeId":1, "typeName": "Human Annotation"}
     layersData.push(layerData);
     // put marks on layer
     marks.forEach(mark => {
-      console.log("mark")
-      console.log(mark)
       renderFeature(mt.name, mark, layer);
     })
     // add to layersData
@@ -35,11 +31,16 @@ async function getLayers(){
   hms.forEach(function(hm){
     // create layer
     let layer = camic.layers.getLayer(hm.name)
+    console.log(hm.name)
     // render the heatmap
-    simpleheat(camic.layers.delayers['hm.name'], hm.height, hm.width, 13000, 13000)
+    let dl = camic.layers.delayers[hm.name]
+    console.log(dl);
+    var size = viewer.world.getItemAt(0).getContentSize();
+    let heat = simpleheat(dl, hm.height, hm.width, size.x, size.y)
+    heat.data(hm.values).max(10000).draw()
     let layerdata = {id: hm.name, name: hm.name, typeId:2, typeName: "Heatmap"}
     layersData.push(layerData)
-  })
+  }.bind(this))
   // ensure all disabled
   //camic.layers.visibleLayers = new Set([]);
   // put together to layerdata

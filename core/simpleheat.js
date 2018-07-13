@@ -9,6 +9,7 @@ function simpleheat(context, w, h, sw, sh) {
 
     // external canvas
     this._externalctx = context;
+    console.log(context)
     // internal canvas
     this._canvas = this._createCanvas()
     this._canvas.height=h;
