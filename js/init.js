@@ -1,3 +1,17 @@
+function callback(data,isDisplay){
+  console.log(data);
+  console.log(isDisplay);
+  // ger names
+  // add or remove from
+  if (isDisplay){
+    data.forEach((x)=>camic.layers.visibleLayers.add(x.name))
+  } else {
+    data.forEach((x)=>camic.layers.visibleLayers.delete(x.name))
+  }
+
+}
+
+
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -41,15 +55,17 @@ async function getLayers(){
     let ld = {id: hm.name, name: hm.name, typeId:2, typeName: "Heatmap"}
     console.log(ld)
     retData.push(ld)
-    console.log(retData)
   }.bind(this))
   // ensure all disabled
-  //camic.layers.visibleLayers = new Set([]);
-  // put together to layerdata
+  camic.layers.visibleLayers = new Set([]);
   return retData;
 }
-var layersData, layerData
+var layersData, layerData, layer_manager
 camic.viewer.addHandler('open', ()=>{
-  getLayers().then(x=>layersData=x)
-  layerData = layersData
+  getLayers().then(x=>{
+    layersData=x;
+    console.log(layersData);
+    layer_manager = new LayersViewer({id:'overlayers',data:layersData,callback:callback });
+    console.log(layer_manager);
+  }).catch(console.log)
 })

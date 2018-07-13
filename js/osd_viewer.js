@@ -8,7 +8,7 @@ let camessage;
 let zctrl;
 let side_apps;
 let side_layers;
-let layer_manager;
+
 function initialize(){
 	console.log('start...');
 	// create a viewer and set up
@@ -73,7 +73,6 @@ function initialize(){
     }
 
     // overlayer manager
-    layer_manager = new LayersViewer({id:'overlayers',data:layersData,callback:callback });
 
 	console.log('end');
 
