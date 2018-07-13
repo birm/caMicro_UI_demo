@@ -30,9 +30,6 @@ simpleheat.prototype = {
 
     defaultGradient: {
         0.2: 'blue',
-        0.3: 'cyan',
-        0.35: 'lime',
-        0.4: 'yellow',
         0.5: 'red'
     },
 

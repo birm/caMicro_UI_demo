@@ -30,13 +30,13 @@ var mt2 = [{
 }]
 
 var data1 = []
-for (var i=0; i<100; i++){
-  data1.push([Math.floor(Math.random()*100), Math.floor(Math.random()*100),Math.floor(Math.random()*1000)])
+for (var i=0; i<1e3; i++){
+  data1.push([Math.floor(Math.random()*100), Math.floor(Math.random()*100),Math.floor(Math.random())])
 }
 
 var data2 = []
-for (var i=0; i<100; i++){
-  data2.push([Math.floor(Math.random()*100), Math.floor(Math.random()*100),Math.floor(Math.random()*1000)])
+for (var i=0; i<1e3; i++){
+  data2.push([Math.floor(Math.random()*100), Math.floor(Math.random()*100),Math.floor(Math.random())])
 }
 
 var hm1 = [{

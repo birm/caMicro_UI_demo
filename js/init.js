@@ -37,7 +37,7 @@ async function getLayers(){
     console.log(dl);
     var size = viewer.world.getItemAt(0).getContentSize();
     let heat = simpleheat(dl, hm.height, hm.width, size.x, size.y)
-    heat.data(hm.values).max(10000).draw()
+    heat.data(hm.values).radius(10).max(500000).draw()
     let ld = {id: hm.name, name: hm.name, typeId:2, typeName: "Heatmap"}
     console.log(ld)
     retData.push(ld)
