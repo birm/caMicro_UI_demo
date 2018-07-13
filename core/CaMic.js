@@ -12,7 +12,8 @@ class CaMic{
       animationTime: 0.75,
       maxZoomPixelRatio: 2,
       visibilityRatio: 1,
-      constrainDuringPan: true
+      constrainDuringPan: true,
+      navigatorAutoFade: false
       //zoomPerScroll: 1
     });
     // initialize layers
