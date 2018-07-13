@@ -19,12 +19,18 @@ async function getLayers(){
     let layer = camic.layers.getLayer(mt.name)
     // get marks
     let marks = await camic.store.getMarks(mt.name)
+    console.log("marks")
     console.log(marks)
-    // put marks on layer
-    marks.forEach(mark => renderFeature(mt.name, mark, layer))
-    // add to layersData
     let layerdata = {"id": mt.name, "name": mt.name, "typeId":1, "typeName": "Human Annotation"}
-    layersData.push(layerData)
+    layersData.push(layerData);
+    // put marks on layer
+    marks.forEach(mark => {
+      console.log("mark")
+      console.log(mark)
+      renderFeature(mt.name, mark, layer);
+    })
+    // add to layersData
+
   })
   hms.forEach(function(hm){
     // create layer
@@ -35,10 +41,12 @@ async function getLayers(){
     layersData.push(layerData)
   })
   // ensure all disabled
-  camic.layers.visibleLayers = new Set([]);
+  //camic.layers.visibleLayers = new Set([]);
   // put together to layerdata
   return layersData;
 }
-
-var layersData = getLayers()
-var layerData = layersData
+var layersData, layerData
+camic.viewer.addHandler('open', ()=>{
+  layersData= getLayers()
+  layerData = layersData
+})

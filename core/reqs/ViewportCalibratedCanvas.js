@@ -2,7 +2,10 @@ function ViewportCalibratedCanvas(base, viewer) {
     // translation methods
     function convertPoint(x, y) {
         var pt = new OpenSeadragon.Point(x, y);
-        return viewer.viewport.viewportToImageCoordinates(pt);
+        var new_pt = viewer.viewport.viewportToImageCoordinates(pt);
+        console.log(pt)
+        console.log(new_pt)
+        return new_pt
     }
     function convertLen(x, y) {
       var pt = new OpenSeadragon.Point(x, y);
