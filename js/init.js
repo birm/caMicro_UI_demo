@@ -53,7 +53,6 @@ async function getLayers(){
     let heat = simpleheat(dl, hm.height, hm.width, size.x, size.y)
     heat.data(hm.values).radius(10).max(500000).draw()
     let ld = {id: hm.name, name: hm.name, typeId:2, typeName: "Heatmap"}
-    console.log(ld)
     retData.push(ld)
   }.bind(this))
   // ensure all disabled
